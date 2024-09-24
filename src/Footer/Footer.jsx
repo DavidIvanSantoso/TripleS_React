@@ -6,6 +6,12 @@ function Footer(){
     return(
         <footer className=" text-white py-3">
       <Container>
+      <hr style={{
+                        border: 'none', // Remove default styling
+                        borderTop: '4px solid white', // Custom line style
+                        width: '100%', // Full width
+                        // Space above and below the line
+                    }} />
         <Row>
           <Col md={4}>
             <h5>About this page</h5>

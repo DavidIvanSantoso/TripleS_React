@@ -1,0 +1,27 @@
+[
+    {
+        "sid":1,
+        "name":"Yoon Seo-yeon",
+        "hangeul":"윤서연",
+        "birthday":"2003.08.06",
+        "nationality":"KR"
+    },{
+        "sid":3,
+        "name":"Lee JiWoo",
+        "hangeul":"이지우",
+        "birthday":"2005.10.24",
+        "nationality":"KR"
+    },{
+        "sid":4,
+        "name":"Kim ChaeYeon",
+        "hangeul":"김채연",
+        "birthday":"2004.12.04",
+        "nationality":"KR"
+    },{
+        "sid":6,
+        "name":"Kim SooMin",
+        "hangeul":"김수민",
+        "birthday":"2007.10.03",
+        "nationality":"KR"
+    }
+]

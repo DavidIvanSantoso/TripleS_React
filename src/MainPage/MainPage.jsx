@@ -26,7 +26,7 @@ function MainPage(){
                 className="d-inline-block align-top"></img> TripleS</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="#aboutpage">About</Nav.Link>
-                        <Nav.Link href="#features">Members</Nav.Link>
+                        <Nav.Link href="#subunit">Sub-Unit</Nav.Link>
                         <Nav.Link href="#pricing">Additional Info</Nav.Link>
                     </Nav>
                     </Container>

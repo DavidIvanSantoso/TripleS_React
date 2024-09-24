@@ -4,8 +4,13 @@ import '../MainPage/aboutpage.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faInstagramSquare,  faTiktok,  faTwitterSquare, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
 import Nav from 'react-bootstrap/Nav'
+import { useState} from "react";
+import AAA from '../SubUnit/AAA'
+import Kre from "../SubUnit/Kre";
 
 function AboutPage(){
+    const [activeTab, setActiveTab] = useState('tab1')
+    
     return(
         <Container fluid className="mx-3">
             <div className="About">
@@ -44,7 +49,7 @@ function AboutPage(){
                     </Row>
                 </Row>
             </div>
-            <div className="SubUnit mx-3 mt-5">
+            <div className="SubUnit mx-3 mt-5" id="subunit">
                 <Row>
                 <h2 style={{fontSize:'6rem'}}>Sub-Unit</h2>
                     <hr style={{
@@ -55,35 +60,38 @@ function AboutPage(){
                     }} />
                 </Row>
                <Row className="tab">
-                    <Nav variant="tabs" defaultActiveKey="/AAA">
+                    <Nav variant="tabs" onSelect={(selectedKey)=>setActiveTab(selectedKey)} activeKey={activeTab}>
                         <Nav.Item>
-                            <Nav.Link style={{color:'white'}}><h5>Acid Angel from Asia</h5></Nav.Link>
+                            <Nav.Link eventKey="tab1" style={{color:'#9193c2'}}><h5>Acid Angel from Asia</h5></Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link style={{color:'white'}}><h5>+(KR)ystal Eyes</h5></Nav.Link>
+                            <Nav.Link eventKey="tab2" style={{color:'#9193c2'}}><h5>+(KR)ystal Eyes</h5></Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link style={{color:'white'}}><h5>LOVElution</h5></Nav.Link>
+                            <Nav.Link eventKey="tab3" style={{color:'#9193c2'}} disabled><h5>LOVElution</h5></Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link style={{color:'white'}}><h5>EVOLution</h5></Nav.Link>
+                            <Nav.Link eventKey="tab4" style={{color:'#9193c2'}}disabled><h5>EVOLution</h5></Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link style={{color:'white'}}><h5>NXT</h5></Nav.Link>
+                            <Nav.Link eventKey="tab5" style={{color:'#9193c2'}}disabled><h5>NXT</h5></Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link style={{color:'white'}}><h5>Aria</h5></Nav.Link>
+                            <Nav.Link eventKey="tab6" style={{color:'#9193c2'}}disabled><h5>Aria</h5></Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link style={{color:'white'}}><h5>Glow</h5></Nav.Link>
+                            <Nav.Link eventKey="tab7" style={{color:'#9193c2'}}disabled><h5>Glow</h5></Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link style={{color:'white'}}><h5>Visionary Vision</h5></Nav.Link>
+                            <Nav.Link eventKey="tab8" style={{color:'#9193c2'}}disabled><h5>Visionary Vision</h5></Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link style={{color:'white'}}><h5>Japan Dimension</h5></Nav.Link>
+                            <Nav.Link eventKey="tab9" style={{color:'#9193c2'}}disabled><h5>Japan Dimension</h5></Nav.Link>
                         </Nav.Item>
                     </Nav>
+                    {activeTab === 'tab1' && <AAA />}
+                    {activeTab === 'tab2' && <Kre />}
+                    
                </Row>
             </div>
         </Container>

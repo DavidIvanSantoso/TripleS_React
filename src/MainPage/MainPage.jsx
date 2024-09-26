@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { useState } from 'react';
 import AboutPage from './AboutPage';
 import NavbarTop from '../Navbar/Navbar';
+import assemble24 from '../assets/tripleS_Showcase.jpg'
+import tripleSLogo from '../assets/tripleSLogo.jpg'
 
 function MainPage(){
     const [index,setIndex]=useState(0)
@@ -44,11 +46,11 @@ function MainPage(){
             <div className='carouselContainer mt-3'>
                 <Carousel>
                 <Carousel.Item>
-                        <img src='assets/tripleSLogo.jpg' className="d-block w-100"></img>
+                        <img src={tripleSLogo} className="d-block w-100"></img>
     
                     </Carousel.Item>
                     <Carousel.Item>
-                        <img src='assets/tripleS_Showcase.jpg' className="d-block w-100"></img>
+                        <img src={assemble24} className="d-block w-100"></img>
                         <Carousel.Caption>
                         <h3>Girls Never Die</h3>
                         <p>Latest album from TripleS</p>

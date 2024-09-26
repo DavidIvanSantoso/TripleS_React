@@ -2,13 +2,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Container,Row } from 'react-bootstrap';
 import {  Link } from 'react-router-dom';
+import tripleSLogo from '../assets/tripleSLogo.jpg'
 
 function NavbarTop(){
     return(
         <Row>
             <Navbar bg="black" data-bs-theme="dark">
                     <Container fluid style={{width:'100%'}}>
-                    <Navbar.Brand as={Link} to="/home" className='justify-content-center align-items-center'><img src='assets/tripleSLogo.jpg' width="84px"
+                    <Navbar.Brand as={Link} to="/home" className='justify-content-center align-items-center'><img src={tripleSLogo} width="84px"
                 height="48px"
                 className="d-inline-block align-center"></img> TripleS</Navbar.Brand>
                     <Nav className="me-auto">

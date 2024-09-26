@@ -8,7 +8,7 @@ function NavbarTop(){
         <Row>
             <Navbar bg="black" data-bs-theme="dark">
                     <Container fluid style={{width:'100%'}}>
-                    <Navbar.Brand as={Link} to="/home" className='justify-content-center align-items-center'><img src='./src/assets/tripleSLogo.jpg' width="84px"
+                    <Navbar.Brand as={Link} to="/home" className='justify-content-center align-items-center'><img src='public/tripleSLogo.jpg' width="84px"
                 height="48px"
                 className="d-inline-block align-center"></img> TripleS</Navbar.Brand>
                     <Nav className="me-auto">

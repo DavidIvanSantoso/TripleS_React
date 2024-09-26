@@ -1,11 +1,15 @@
 /* eslint-disable no-unused-vars */
 import './App.css'
-import LandingPage from './LandingPage/LandingPage'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './global.css';
-import MainPage from './MainPage/MainPage';
+
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Footer from './Footer/Footer';
+//pages
+import MainPage from './MainPage/MainPage';
+import LandingPage from './LandingPage/LandingPage'
+import MemberPage from './Members/MemberProfile'
+
 function App() {
  
   return (
@@ -15,6 +19,7 @@ function App() {
           <Routes>
           <Route path="/" element={<LandingPage/>} />
           <Route path="/home" element={<MainPage />} />
+          <Route path="/member" element={<MemberPage/>} />
           </Routes>
         </div>
         <Footer /> 

@@ -1,37 +1,45 @@
 /* eslint-disable no-unused-vars */
 import { Container, Row, Col } from 'react-bootstrap';
 import '../MainPage/mainpage.css'
-
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import Toast from 'react-bootstrap/Toast';
+import ToastContainer from 'react-bootstrap/ToastContainer';
 import Carousel from 'react-bootstrap/Carousel';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { useState } from 'react';
 import AboutPage from './AboutPage';
+import NavbarTop from '../Navbar/Navbar';
 
 function MainPage(){
     const [index,setIndex]=useState(0)
     const handleSelect=(selected)=>{
         setIndex(selected)
     }
-
+    
+    const [showAlert,setShowAlert]=useState('false')
+    const handleClose = () => setShowAlert(false);
     return(
         <>
-        <Container fluid >
-            <Row>
-            <Navbar bg="black" data-bs-theme="dark">
-                    <Container fluid style={{width:'100%'}}>
-                    <Navbar.Brand href="#home" className='justify-content-center align-items-center'><img src='/src/assets/tripleSLogo.jpg' width="84px"
-                height="48px"
-                className="d-inline-block align-top"></img> TripleS</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="#aboutpage">About</Nav.Link>
-                        <Nav.Link href="#subunit">Sub-Unit</Nav.Link>
-                        <Nav.Link href="#pricing">Additional Info</Nav.Link>
-                    </Nav>
-                    </Container>
-                </Navbar>
-            </Row>
+        <Container fluid > 
+            <NavbarTop></NavbarTop>
+            <ToastContainer
+            className="p-3"
+            position={'top-end'}
+            style={{ zIndex: 1 }}
+            >
+                <Toast bg='warning' onClose={() => setShowAlert(false)} show={showAlert} delay={3000} > 
+                    <Toast.Header closeButton={false}>
+                    <img
+                        src="holder.js/20x20?text=%20"
+                        className="rounded me-2"
+                        alt=""
+                    />
+                    <strong className="me-auto">Developer Message</strong>
+                    <button type="button" className="btn-close" aria-label="Close" onClick={handleClose} />
+                    {/* <small>11 mins ago</small> */}
+                    </Toast.Header>
+                    <Toast.Body>This is just my personal project to learn React framework. All images & information, i took from tripleS official website and tripleS Wiki | Fandom.</Toast.Body>
+                </Toast>
+            </ToastContainer>
             <Row>
             <div className='carouselContainer mt-3'>
                 <Carousel>

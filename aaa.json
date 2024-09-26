@@ -1,0 +1,27 @@
+[
+    {
+        "sid":2,
+        "name":"Jeong Hyerin",
+        "hangeul":"정혜린",
+        "birthday":"2007.04.12",
+        "nationality":"KR"
+    },{
+        "sid":5,
+        "name":"Kim YooYeon",
+        "hangeul":"김유연",
+        "birthday":"2001.02.09",
+        "nationality":"KR"
+    },{
+        "sid":7,
+        "name":"Kim NaKyoung",
+        "hangeul":"김나경",
+        "birthday":"2002.10.13",
+        "nationality":"KR"
+    },{
+        "sid":8,
+        "name":"Gong YuBin",
+        "hangeul":"공유빈",
+        "birthday":"2005.02.03",
+        "nationality":"KR"
+    }
+]

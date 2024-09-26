@@ -10,12 +10,12 @@ function NavbarTop(){
                     <Container fluid style={{width:'100%'}}>
                     <Navbar.Brand as={Link} to="/home" className='justify-content-center align-items-center'><img src='/src/assets/tripleSLogo.jpg' width="84px"
                 height="48px"
-                className="d-inline-block align-top"></img> TripleS</Navbar.Brand>
+                className="d-inline-block align-center"></img> TripleS</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="#aboutpage">About</Nav.Link>
                         <Nav.Link as={Link} to="/home" href='#subunit'>Sub-Unit</Nav.Link>
                         <Nav.Link as={Link} to="/member">Member List</Nav.Link>
-                        <Nav.Link href="#pricing">Additional Info</Nav.Link>
+                        <Nav.Link as={Link} to="/discussion">Forum Discussion</Nav.Link>
                     </Nav>
                     </Container>
                 </Navbar>

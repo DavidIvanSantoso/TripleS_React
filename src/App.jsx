@@ -9,9 +9,9 @@ import Footer from './Footer/Footer';
 import MainPage from './MainPage/MainPage';
 import LandingPage from './LandingPage/LandingPage'
 import MemberPage from './Members/MemberProfile'
+import FormDiscussion from './Discussion/DiscussionForm';
 
 function App() {
- 
   return (
     <Router>
       <div className="d-flex flex-column min-vh-100"> {/* This will ensure the footer sticks to the bottom */}
@@ -20,6 +20,7 @@ function App() {
           <Route path="/" element={<LandingPage/>} />
           <Route path="/home" element={<MainPage />} />
           <Route path="/member" element={<MemberPage/>} />
+          <Route path="/discussion" element={<FormDiscussion/>} />
           </Routes>
         </div>
         <Footer /> 

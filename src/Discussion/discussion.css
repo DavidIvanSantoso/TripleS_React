@@ -1,0 +1,20 @@
+/* The floating "+" button */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    font-size: 24px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  .floating-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Ensure the floating button is always on top */
+  .floating-button {
+    z-index: 1000;
+  }

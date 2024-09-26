@@ -44,11 +44,11 @@ function MainPage(){
             <div className='carouselContainer mt-3'>
                 <Carousel>
                 <Carousel.Item>
-                        <img src='public/tripleSLogo.jpg' className="d-block w-100"></img>
+                        <img src='assets/tripleSLogo.jpg' className="d-block w-100"></img>
     
                     </Carousel.Item>
                     <Carousel.Item>
-                        <img src='public/tripleS_Showcase.jpg' className="d-block w-100"></img>
+                        <img src='assets/tripleS_Showcase.jpg' className="d-block w-100"></img>
                         <Carousel.Caption>
                         <h3>Girls Never Die</h3>
                         <p>Latest album from TripleS</p>

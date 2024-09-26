@@ -23,7 +23,7 @@ function LandingPage(){
                         </Row>
                     </Col>
                     <Col className="d-flex justify-content-center align-items-center" md={4}>
-                    <img src="public/tripleSLogo.jpg" alt="tripleS Logo" style={{ maxWidth: '100%', height: 'auto' }} />
+                    <img src="assets/tripleSLogo.jpg" alt="tripleS Logo" style={{ maxWidth: '100%', height: 'auto' }} />
                     </Col>
                 </Row>
             </Container>

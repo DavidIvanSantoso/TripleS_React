@@ -13,7 +13,7 @@ import FormDiscussion from './Discussion/DiscussionForm';
 
 function App() {
   return (
-    <Router>
+    <Router basename='/TripleS_React'>
       <div className="d-flex flex-column min-vh-100"> {/* This will ensure the footer sticks to the bottom */}
         <div className="flex-fill">
           <Routes>

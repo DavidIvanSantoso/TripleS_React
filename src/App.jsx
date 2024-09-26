@@ -3,7 +3,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './global.css';
 
-import { HashRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Footer from './Footer/Footer';
 //pages
 import MainPage from './MainPage/MainPage';

@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import tripleSLogo from '../assets/tripleSLogo.jpg'
 
 function LandingPage(){
     const navigate=useNavigate();
@@ -23,7 +24,7 @@ function LandingPage(){
                         </Row>
                     </Col>
                     <Col className="d-flex justify-content-center align-items-center" md={4}>
-                    <img src="/assets/tripleSLogo.jpg" alt="tripleS Logo" style={{ maxWidth: '100%', height: 'auto' }} />
+                    <img src={tripleSLogo} alt="tripleS Logo" style={{ maxWidth: '100%', height: 'auto' }} />
                     </Col>
                 </Row>
             </Container>

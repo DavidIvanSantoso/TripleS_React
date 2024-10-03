@@ -1,8 +1,7 @@
-# React + Vite
+This is my personal project to learn ReactJS!! <br>
+I made a mock Wiki  for Kpop Group called tripleS from Modhaus
+<br>
+You can check it out with this link below! <br>
+https://davidivansantoso.github.io/TripleS_React/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![image](https://github.com/user-attachments/assets/92fa0297-f5f8-46b3-9011-5d6077c490ad)

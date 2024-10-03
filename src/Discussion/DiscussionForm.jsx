@@ -7,10 +7,14 @@ import CloseButton from 'react-bootstrap/CloseButton';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import Spinner from "react-bootstrap/Spinner";
 // import { Pagination } from 'react-bootstrap';
 //axios
 import axios from "axios";
 
+//transition
+import { CSSTransition } from 'react-transition-group';
+import './FadeAnimation.css'; // Import CSS for fade animation
 
 
 function FormDiscussion(){
@@ -24,7 +28,11 @@ function FormDiscussion(){
     // form input   
     const [username, setUsername] = useState("");
     const [comment, setComment] = useState("");
-     
+    const [isLoading, setIsLoading] = useState(true);
+
+     // This state controls visibility for animation
+     const [visibleComments, setVisibleComments] = useState([]);
+
     //date formater
     function formatDate(dateString) {
         const date = new Date(dateString);
@@ -35,42 +43,19 @@ function FormDiscussion(){
         return `${day}/${month}/${year}`;
       }
 
-    //pagination
-    // const [page, setPage] = useState(1);
-    // const [totalPages, setTotalPages] = useState(1);
-    // const commentsPerPage = 5;
-
-     // Function to handle page changes
-    // const handlePageChange = (pageNumber) => {
-    //     setPage(pageNumber);
-    // };
-   
         const getCommentsAPI= async ()=>{
-            // try {
-            //     const resp = await axios.get(
-            //       `https://66f57e9e4ff096dbc7549f85.mockapi.io/tripleSReact/comments?page=${page}&limit=${commentsPerPage}`
-            //     );
-            //     setComments(resp.data);
-        
-            //     // Ensure x-total-count exists and is valid
-            //     const totalComments = parseInt(resp.headers["x-total-count"], 10);
-            //     if (!isNaN(totalComments)) {
-            //       setTotalPages(Math.ceil(totalComments / commentsPerPage)); // Correct total pages calculation
-            //     } else {
-            //       setTotalPages(1); // Default to 1 page if total count is invalid
-            //     }
-            //   } catch (err) {
-            //     console.error("API FAILED", err);
-            //     setTotalPages(1); // Set to 1 page in case of error
-            //   }
             try{
                 const resp=await axios.get('https://66f57e9e4ff096dbc7549f85.mockapi.io/tripleSReact/comments')
                 setComments(resp.data)
+                setVisibleComments(resp.data);
                 // setTotalPages(Math.ceil(resp.headers['x-total-count'] / commentsPerPage));
                 console.log(resp.data)
             }
             catch(err){
                 console.log("API FAILED",err)
+            }
+            finally{
+                setIsLoading(false)
             }
         }
         useEffect(() => {
@@ -94,39 +79,67 @@ function FormDiscussion(){
             console.error("Error posting comment:", error);
           }
     }
-    
+    const handleDeleteComment=async(id)=>{
+        try{
+            // Start fade-out animation
+            setVisibleComments((prev) =>
+                prev.map((c) => (c.id === id ? { ...c, isVisible: false } : c))
+            );
+            await axios.delete(`https://66f57e9e4ff096dbc7549f85.mockapi.io/tripleSReact/comments/${id}`)
+             // Remove the comment from state after deletion
+             setVisibleComments((prev) => prev.filter((c) => c.id !== id));
+            console.log("SUCCESS")
+        }
+        catch(error){
+            console.log("ERROR",error)
+        }
+    };
+
     return(
         <>
             <NavbarTop></NavbarTop>
             <Container fluid className="mt-5">
-                <Row>
-                    <Col xs={3}>
-                        <h1>Discussion</h1>
-                    </Col>
-                    <Col className="d-inline-block align-center" xs={8}>
-                        <Button variant="primary" onClick={openModal}>Add Comments</Button>
-                    </Col>
-                </Row>
-                {comments.map((data)=>(
+            <Row className="align-items-center">
+                <Col xs={6} sm={3} className="mb-3 mb-sm-0">
+                    <h1>Discussion</h1>
+                </Col>
+                <Col xs={6} sm={8} className="text-sm-end text-center">
+                    <Button variant="primary" onClick={openModal}>Add Comments</Button>
+                </Col>
+            </Row>
+                {isLoading? 
+                     (
+                        <div className="d-flex justify-content-center">
+                          <Spinner animation="border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                          </Spinner>
+                        </div>
+                      )
+                :(visibleComments.map((data)=>(
+                    <CSSTransition
+                    key={data.id}
+                    in={data.isVisible !== false}
+                    timeout={300}
+                    classNames="fade"
+                    unmountOnExit
+                     > 
                     <div key={data.id} className="commentBox" style={{'backgroundColor':'white', 'border':"5px solid black", 'borderRadius':"10px","color":'black','padding':'6px'}}>
-                    <Row>
-                        <Row>
-                            <Col xs={3}>
-                                <h5>{data.username}</h5>
-                            </Col>
-                            <Col xs={7}>
-                                <p>Date: {formatDate(data.date)} </p>
-                            </Col>
-                            <Col xs={2}>
-                                <CloseButton ></CloseButton>
-                            </Col>
+                    <Row className="align-items-center">
+                        <Col xs={9} className="d-flex">
+                            <h5 className="me-3">{data.username}</h5>
+                            <p className="mb-0">Date: {formatDate(data.date)}</p>
+                        </Col>
+                        <Col xs={3} className="text-end">
+                            <CloseButton onClick={()=>handleDeleteComment(data.id)}/>
+                        </Col>
                         </Row>
                         <Row>
                             <p>{data.comment}</p>
                         </Row>
-                    </Row>
                 </div>
-                ))}
+                </CSSTransition>
+                ))
+                )}
 
             {/* <Pagination>
                     <Pagination.First onClick={() => handlePageChange(1)} disabled={page === 1} />

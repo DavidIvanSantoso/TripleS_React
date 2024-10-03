@@ -62,7 +62,7 @@ function MemberProfile(){
                 >
                 {member.map((res)=>(
                     <SwiperSlide key={res.sid}>
-                        <div className="d-flex flex-column align-items-center" >
+                        <div className="d-flex flex-column align-items-left" >
                             <Row>
                                 <img style={{'border':"5px solid black", 'border-radius':"20px"}} src={res.img}></img>
                             </Row>
@@ -72,11 +72,7 @@ function MemberProfile(){
                                     <h1>{res.name}</h1>
                                     <h1>{res.hangeul}</h1>
                                 </Col>
-                                <Col>
-                                    <h1>S{res.sid}</h1>
-                                    <h1>{res.name}</h1>
-                                    <h1>{res.hangeul}</h1>
-                                </Col>
+                                
                                 
                             </Row>
                         </div>

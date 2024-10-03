@@ -11,7 +11,7 @@ function Kre(){
       };
     const opts = {
         height: '390',
-        width: '640',
+        width: '100%',
         playerVars: {
           autoplay: 0, // Auto-play the video
         },
@@ -51,15 +51,25 @@ function Kre(){
                          ))}
                         </tbody>
                     </Table>
-                    <div className="albHigh mt-3">
-                            <h3>Album Highlight!</h3>
-                            <h3>트리플에스 CHERRY TALK</h3>
-                            <YouTube videoId="uE_T_t6s_Go" opts={opts} onReady={onPlayerReady} />
+                   
+                </Col>
+                <Row className="align-items-center">
+                    <Col xs={12} sm={6} className="albHigh mt-3">
+                        <h3>Album Highlight!</h3>
+                        <h3>트리플에스 CHERRY TALK</h3>
+                        <div className="embed-responsive embed-responsive-16by9">
+                        <YouTube videoId="uE_T_t6s_Go" opts={opts} onReady={onPlayerReady} className="w-100" />
                         </div>
-                </Col>
-                <Col className="d-flex align-items-start">
-                    <img src="https://cdn.prod.website-files.com/654d79c08e32147b917ae9cf/662cc819b09babfb88ae2b89_album%20cover_3.-%2B(KR)ystal-Eyes-_AESTHETIC_-p-500.jpg"></img>
-                </Col>
+                    </Col>
+                    <Col xs={12} sm={6} className="d-flex justify-content-center mt-3 mt-sm-0">
+                        <img
+                        src="https://cdn.prod.website-files.com/654d79c08e32147b917ae9cf/662cc819b09babfb88ae2b89_album%20cover_3.-%2B(KR)ystal-Eyes-_AESTHETIC_-p-500.jpg"
+                        alt="Album Cover"
+                        className="img-fluid"
+                        />
+                    </Col>
+                </Row>
+              
             </Row>
         </Container>
     )
